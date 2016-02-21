@@ -21,7 +21,11 @@ class BoardLayout extends React.Component {
   render() {
     return (
       <StaticLayout className='layout' cols={12} rowHeight={150} onLayoutChange={this.onLayoutChange}>
-        <div key="1" _grid={{x: 0, y: 0, w: 4, h: 2, static: true}}>1</div>
+        <div key="1" _grid={{x: 0, y: 0, w: 4, h: 2, static: true}}>
+          <div className='widget'>
+            <div>1</div>
+          </div>
+        </div>
         <div key="2" _grid={{x: 4, y: 0, w: 4, h: 2, static: true}}>2</div>
         <div key="3" _grid={{x: 8, y: 0, w: 4, h: 2, static: true}}>3</div>
         <div key="4" _grid={{x: 0, y: 2, w: 4, h: 2, static: true}}>4</div>
