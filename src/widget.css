@@ -1,0 +1,22 @@
+
+.widget h1.title{
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.widget .body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.react-grid-item.text-widget {
+  background: #ec663c;
+  color: white;
+}
+
+.react-grid-item.number-widget {
+  background: #47bbb3;
+  color: white;
+}

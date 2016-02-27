@@ -3,6 +3,8 @@ import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin'
 import ReactGridLayout from 'react-grid-layout'
 import reactMixin from 'react-mixin'
 
+import TextWidget from './TextWidget'
+
 const WidthProvider = ReactGridLayout.WidthProvider
 
 var StaticLayout = WidthProvider(ReactGridLayout)
@@ -20,17 +22,22 @@ class BoardLayout extends React.Component {
 
   render() {
     return (
-      <StaticLayout className='layout' cols={12} rowHeight={150} onLayoutChange={this.onLayoutChange}>
-        <div key="1" _grid={{x: 0, y: 0, w: 4, h: 2, static: true}}>
-          <div className='widget'>
-            <div>1</div>
-          </div>
+      <StaticLayout className='layout' cols={12} rowHeight={200} onLayoutChange={this.onLayoutChange}>
+        <div key="1" _grid={{x: 0, y: 0, w: 6, h: 2, static: true}} className='widget text-widget'>
+          <TextWidget title={'Text Widget'} body={'I am a TextWidget !'}></TextWidget>
         </div>
-        <div key="2" _grid={{x: 4, y: 0, w: 4, h: 2, static: true}}>2</div>
-        <div key="3" _grid={{x: 8, y: 0, w: 4, h: 2, static: true}}>3</div>
-        <div key="4" _grid={{x: 0, y: 2, w: 4, h: 2, static: true}}>4</div>
-        <div key="5" _grid={{x: 4, y: 2, w: 4, h: 2, static: true}}>5</div>
-        <div key="6" _grid={{x: 8, y: 2, w: 4, h: 2, static: true}}>6</div>
+        <div key="2" _grid={{x: 6, y: 0, w: 3, h: 2, static: true}} className='widget number-widget'>
+          <TextWidget title={'2'} body={'I am a NumberWidget'}></TextWidget>
+        </div>
+        <div key="6" _grid={{x: 9, y: 0, w: 3, h: 4, static: true}}>
+          <TextWidget title={'6'} body={''}></TextWidget>
+        </div>
+        <div key="4" _grid={{x: 0, y: 2, w: 3, h: 2, static: true}}>
+          <TextWidget title={'4'} body={''}></TextWidget>
+        </div>
+        <div key="5" _grid={{x: 3, y: 2, w: 6, h: 2, static: true}}>
+          <TextWidget title={'5'} body={''}></TextWidget>
+        </div>
       </StaticLayout>
     )
   }
