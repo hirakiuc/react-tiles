@@ -18,5 +18,5 @@ TextWidget.propTypes = {
   title: React.PropTypes.string.isRequired,
   body: React.PropTypes.string.isRequired,
   moreinfo: React.PropTypes.string,
-  updated_at: React.PropTypes.object
+  updated_at: React.PropTypes.string
 }
