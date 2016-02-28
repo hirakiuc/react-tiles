@@ -13,6 +13,11 @@ module.exports = {
           cacheDirectory: true,
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.styl$/,
+        loader: 'style!css!stylus?minimize',
+        exclude: /node_modules/
       }
     ]
   }
