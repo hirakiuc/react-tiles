@@ -23,9 +23,14 @@ class BoardLayout extends React.Component {
 
   render() {
     return (
-      <StaticLayout className='layout' cols={12} rowHeight={200} onLayoutChange={this.onLayoutChange}>
+      <StaticLayout className='layout' cols={12} rowHeight={210} onLayoutChange={this.onLayoutChange}>
         <div key="1" _grid={{x: 0, y: 0, w: 6, h: 2, static: true}} className='widget text-widget'>
-          <TextWidget title={'Text Widget'} body={'I am a TextWidget !'} moreinfo={'more info'} updated_at={moment().format('YYYY/MM/DD hh:mm:ss')}></TextWidget>
+          <TextWidget
+            title={'Text Widget'}
+            body={'I am a TextWidget !'}
+            moreinfo={'more info'}
+            updated_at={moment().format('YYYY/MM/DD hh:mm:ss')}>
+          </TextWidget>
         </div>
         <div key="2" _grid={{x: 6, y: 0, w: 3, h: 2, static: true}} className='widget number-widget'>
           <TextWidget title={'2'} body={'I am a NumberWidget'}></TextWidget>
