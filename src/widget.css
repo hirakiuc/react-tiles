@@ -1,15 +1,15 @@
 
 .widget h1.title{
-  margin-bottom: 12px;
+  margin-bottom: 0.5em;
   text-align: center;
-  font-size: 250%;
+  font-size: 400%;
   font-weight: 400;
   font-family: 'Ubuntu', sans-serif;
   color: rgba(255,255,255,0.7);
 }
 
 .widget .body {
-  font-size: 150%;
+  font-size: 200%;
   font-family: 'Ubuntu', sans-serif;
 }
 
