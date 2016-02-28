@@ -2,13 +2,24 @@
 .widget h1.title{
   margin-bottom: 12px;
   text-align: center;
-  font-size: 35px;
+  font-size: 180%;
   font-weight: 400;
   font-family: 'Ubuntu', sans-serif;
 }
 
 .widget .body {
   font-family: 'Ubuntu', sans-serif;
+}
+
+.widget .more-info {
+  font-size: 120%;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.widget .updated-at {
+  font-size: 80%;
+  font-family: 'Ubuntu', sans-serif;
+  color: rgba(0,0,0,0.3);
 }
 
 .react-grid-item.text-widget {
