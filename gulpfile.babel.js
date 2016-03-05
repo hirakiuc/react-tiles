@@ -1,17 +1,18 @@
 'use strict'
 
-var gulp = require('gulp')
-var gutil = require('gulp-util')
-var webpack = require('webpack')
-var stream = require('webpack-stream')
-var webpackConfig = require('./webpack.config.js')
-var DevServer = require('webpack-dev-server')
-var Promise = require('es6-promise').Promise;
-var del = require('del')
+import gulp from 'gulp'
+import gutil from 'gulp-util'
+import webpack from 'webpack'
+import stream from 'webpack-stream'
+import webpackConfig from './webpack.config.js'
+import DevServer from 'webpack-dev-server'
+import Promise from 'es6-promise'
+import del from 'del'
+import imagemin from 'gulp-imagemin'
 
 gulp.task('build:js', () => {
-  var src = './src/containers/Root.js'
-  var dst = './dst'
+  const src = './src/containers/Root.js'
+  const dst = './dst'
 
   return gulp.src(src)
     .pipe(stream(webpackConfig))
@@ -19,22 +20,35 @@ gulp.task('build:js', () => {
 })
 
 gulp.task('build:stylus', () => {
-  var src = './src/**/*.styl'
-  var dst = './dst'
+  const src = './src/**/*.styl'
+  const dst = './dst'
 
   return gulp.src(src)
     .pipe(stream(webpackConfig))
     .pipe(gulp.dest(dst))
 })
 
-gulp.task('build', ['build:js', 'build:stylus'])
+gulp.task('build:svg', () => {
+  const src = './images/**/*.svg'
+  const dst = './dst'
+
+  const options = {
+    optimizationLevel: 7
+  }
+
+  return gulp.src(src)
+    .pipe(imagemin(options))
+    .pipe(gulp.dest(dst))
+})
+
+gulp.task('build', ['build:js', 'build:stylus', 'build:svg'])
 
 gulp.task('clean', () => {
   del(['dst/*'])
 })
 
 gulp.task('server', (callback) => {
-  var config = Object.create(webpackConfig)
+  const config = Object.create(webpackConfig)
 
   new DevServer(webpack(config), {
     publicPath: '/' + config.output.publicPath,
@@ -50,7 +64,7 @@ gulp.task('server', (callback) => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(['./src/**/*.js', './src/**/*.styl'], ['build'])
+  gulp.watch(['./src/**/*.js', './src/**/*.styl', './images/**/*'], ['build'])
 })
 
 gulp.task('default', ['clean', 'build', 'watch', 'server'])
