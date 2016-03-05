@@ -1,8 +1,11 @@
 'use strict'
 
 var gulp = require('gulp')
-var webpack = require('webpack-stream')
+var gutil = require('gulp-util')
+var webpack = require('webpack')
+var stream = require('webpack-stream')
 var webpackConfig = require('./webpack.config.js')
+var DevServer = require('webpack-dev-server')
 var Promise = require('es6-promise').Promise;
 var del = require('del')
 
@@ -11,7 +14,7 @@ gulp.task('build:js', () => {
   var dst = './dst'
 
   return gulp.src(src)
-    .pipe(webpack(webpackConfig))
+    .pipe(stream(webpackConfig))
     .pipe(gulp.dest(dst))
 })
 
@@ -20,7 +23,7 @@ gulp.task('build:stylus', () => {
   var dst = './dst'
 
   return gulp.src(src)
-    .pipe(webpack(webpackConfig))
+    .pipe(stream(webpackConfig))
     .pipe(gulp.dest(dst))
 })
 
@@ -30,8 +33,24 @@ gulp.task('clean', () => {
   del(['dst/*'])
 })
 
+gulp.task('server', (callback) => {
+  var config = Object.create(webpackConfig)
+
+  new DevServer(webpack(config), {
+    publicPath: '/' + config.output.publicPath,
+    stats: {
+      colors: true
+    }
+  }).listen(8080, 'localhost', (err) => {
+    if (err) throw new gutil.PluginError('webpack-dev-server', err)
+    gutil.log('[dev-server]', 'http://localhost:8080/index.html')
+
+    callback()
+  })
+})
+
 gulp.task('watch', () => {
   gulp.watch(['./src/**/*.js', './src/**/*.styl'], ['build'])
 })
 
-gulp.task('default', ['clean', 'build', 'watch'])
+gulp.task('default', ['clean', 'build', 'watch', 'server'])
