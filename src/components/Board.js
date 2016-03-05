@@ -5,6 +5,7 @@ import reactMixin from 'react-mixin'
 import moment from 'moment'
 
 import TextWidget from './TextWidget'
+import ClockWidget from './ClockWidget'
 
 const WidthProvider = ReactGridLayout.WidthProvider
 
@@ -33,7 +34,7 @@ class BoardLayout extends React.Component {
           </TextWidget>
         </div>
         <div key="2" _grid={{x: 6, y: 0, w: 3, h: 2, static: true}} className='widget number-widget'>
-          <TextWidget title={'2'} body={'I am a NumberWidget'}></TextWidget>
+          <ClockWidget></ClockWidget>
         </div>
         <div key="6" _grid={{x: 9, y: 0, w: 3, h: 4, static: true}}>
           <TextWidget title={'6'} body={''}></TextWidget>
