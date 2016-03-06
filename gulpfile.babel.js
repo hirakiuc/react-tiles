@@ -20,7 +20,7 @@ gulp.task('build:js', () => {
 })
 
 gulp.task('build:stylus', () => {
-  const src = './src/**/*.styl'
+  const src = './stylus/**/*.styl'
   const dst = './dst'
 
   return gulp.src(src)
@@ -64,7 +64,10 @@ gulp.task('server', (callback) => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(['./src/**/*.js', './src/**/*.styl', './images/**/*'], ['build'])
+  gulp.watch([
+    './lib/**/*.js', '/examples/**/*.js',
+    './stylus/**/*.styl', './images/**/*'
+  ], ['build'])
 })
 
 gulp.task('default', ['clean', 'build', 'watch', 'server'])
