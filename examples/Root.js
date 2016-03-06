@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Board from '../components/Board'
 
-import TextWidget from '../components/TextWidget'
-import ClockWidget from '../components/ClockWidget'
+import Board from '../lib/Board'
+import TextWidget from '../lib/widgets/TextWidget'
+import ClockWidget from '../lib/widgets/ClockWidget'
 
-import '../style.styl'
-import '../widget.styl'
+import '../stylus/style.styl'
+import '../stylus/widget.styl'
 
 document.addEventListener('DOMContentLoaded', (event) => {
   ReactDOM.render(

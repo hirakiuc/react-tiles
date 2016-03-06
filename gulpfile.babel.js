@@ -11,7 +11,7 @@ import del from 'del'
 import imagemin from 'gulp-imagemin'
 
 gulp.task('build:js', () => {
-  const src = './src/containers/Root.js'
+  const src = './examples/Root.js'
   const dst = './dst'
 
   return gulp.src(src)
