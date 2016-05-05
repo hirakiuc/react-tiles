@@ -2,9 +2,13 @@
   "name": "react-tiles",
   "version": "1.0.0",
   "description": "sample",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
+  "files": [
+    "package.json",
+    "index.js",
+    "lib",
+    "README.md"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -17,8 +21,11 @@
     "css-loader": "^0.23.1",
     "del": "^2.2.0",
     "es6-promise": "^3.1.2",
+    "eslint": "^2.9.0",
+    "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "~> 3.9.0",
+    "gulp-eslint": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-util": "^3.0.7",
     "jsx-loader": "^0.13.2",
@@ -37,7 +44,8 @@
   },
   "babel": {
     "presets": [
-      "es2015", "react"
+      "es2015",
+      "react"
     ]
   }
 }

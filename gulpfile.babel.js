@@ -3,6 +3,7 @@
 import DevServer from 'webpack-dev-server'
 import Promise from 'es6-promise'
 import del from 'del'
+import eslint from 'gulp-eslint'
 import gulp from 'gulp'
 import gutil from 'gulp-util'
 import imagemin from 'gulp-imagemin'
@@ -85,6 +86,17 @@ gulp.task('watch', () => {
     './src/**/*.js', '/examples/**/*.js',
     './stylus/**/*.styl', './images/**/*'
   ], ['build'])
+})
+
+gulp.task('lint', () => {
+  return gulp.src([
+    'src/**/*.js',
+    'examples/Root.js',
+    '!node_modules/**'
+  ])
+  .pipe(eslint())
+  .pipe(eslint.format())
+  .pipe(eslint.failAfterError())
 })
 
 gulp.task('default', ['clean', 'build', 'build:examples', 'watch', 'server'])
