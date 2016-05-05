@@ -2,9 +2,6 @@ import React from 'react'
 import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin'
 import ReactGridLayout from 'react-grid-layout'
 import reactMixin from 'react-mixin'
-import moment from 'moment'
-
-import Widget from './Widget'
 
 const WidthProvider = ReactGridLayout.WidthProvider
 
