@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 
 import { Board, TextWidget, ClockWidget } from '../src/index.js'
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (_event) => {
   ReactDOM.render(
     (
       <Board layoutType={'static'} cols={12} rowHeight={210}>
