@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-import Board from '../lib/Board'
-import TextWidget from '../lib/widgets/TextWidget'
-import ClockWidget from '../lib/widgets/ClockWidget'
+import Board from '../src/Board'
+import TextWidget from '../src/widgets/TextWidget'
+import ClockWidget from '../src/widgets/ClockWidget'
 
 import '../stylus/style.styl'
 import '../stylus/widget.styl'
