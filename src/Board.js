@@ -13,7 +13,7 @@ export default class Board extends React.Component {
   }
 
   componentDidMount() {
-    let e = document.createEvent('Event')
+    const e = document.createEvent('Event')
     e.initEvent('resize', true, true)
     window.dispatchEvent(e)
   }
