@@ -4,7 +4,6 @@
  * Ref: https://cssanimation.rocks/clocks/
  */
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Widget from '../Widget'
 
 import '../../stylus/clock_widget.styl'
@@ -49,7 +48,7 @@ export default class ClockWidget extends Widget {
         element.style.transform = style
 
         if (hand.hand == 'minutes') {
-          element.parentNode.setAttribute('data-second-angle', hands[2].angle);
+          element.parentNode.setAttribute('data-second-angle', hands[2].angle)
         }
       }
     }
