@@ -36,6 +36,7 @@
     "react-grid-layout": "^0.12.3",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.6.0",
+    "svg-url-loader": "^1.0.3",
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1",
     "webpack-stream": "^3.2.0"
