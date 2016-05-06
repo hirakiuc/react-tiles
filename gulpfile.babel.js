@@ -13,7 +13,8 @@ import webpack from 'webpack'
 import devConfig     from './config/dev.config.js'
 import releaseConfig from './config/release.config.js'
 
-gulp.task('build:js', () => {
+// Build release files
+gulp.task('build:dist', () => {
   const src = './src/**/*.js'
   const dst = './lib'
 
@@ -21,31 +22,7 @@ gulp.task('build:js', () => {
     .pipe(stream(releaseConfig))
     .pipe(gulp.dest(dst))
 })
-
-gulp.task('build:stylus', () => {
-  const src = './stylus/**/*.styl'
-  const dst = './lib'
-
-  return gulp.src(src)
-    .pipe(stream(releaseConfig))
-    .pipe(gulp.dest(dst))
-})
-
-gulp.task('build:svg', () => {
-  const src = './images/**/*.svg'
-  const dst = './lib'
-
-  const options = {
-    optimizationLevel: 7
-  }
-
-  return gulp.src(src)
-    .pipe(imagemin(options))
-    .pipe(gulp.dest(dst))
-})
-
-// Build release files
-gulp.task('build', ['build:js', 'build:stylus', 'build:svg'])
+gulp.task('build', ['build:dist'])
 
 // Build dev files
 gulp.task('build:dev', () => {
@@ -57,10 +34,14 @@ gulp.task('build:dev', () => {
     .pipe(gulp.dest(dst))
 })
 
-
-gulp.task('clean', () => {
-  del(['lib/*', 'examples/main.js', 'examples/main.js.map'])
+// Clean tasks
+gulp.task('clean:dist', () => {
+  del(['lib/*'])
 })
+gulp.task('clean:dev', () => {
+  del(['examples/main.js', 'examples/main.js.map'])
+})
+gulp.task('clean', ['clean:dev', 'clean:dist'])
 
 gulp.task('server', (callback) => {
   const config = Object.create(devConfig)
@@ -94,4 +75,4 @@ gulp.task('lint', () => {
   .pipe(eslint.failAfterError())
 })
 
-gulp.task('default', ['clean', 'build:dev', 'watch', 'server'])
+gulp.task('default', ['clean:dev', 'build:dev', 'watch', 'server'])
