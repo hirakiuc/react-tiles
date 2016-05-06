@@ -18,5 +18,6 @@ export default class Widget extends React.Component {
 }
 
 Widget.propTypes = {
-  _grid: React.PropTypes.object
+  _grid: React.PropTypes.object,isRequired,
+  onLayoutChange: React.PropTypes.func
 }
