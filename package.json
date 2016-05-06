@@ -2,7 +2,7 @@
   "name": "react-tiles",
   "main": "index.js",
   "version": "1.0.0",
-  "description": "sample",
+  "description": "dashboard component built with react-grid-layout.",
   "scripts": {},
   "files": [
     "package.json",
@@ -10,8 +10,8 @@
     "lib/*.js",
     "README.md"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "hirakiuc",
+  "license": "MIT",
   "devDependencies": {
     "babel": "^6.3.26",
     "babel-core": "^6.7",
@@ -31,6 +31,9 @@
     "gulp-util": "^3.0.7",
     "jsx-loader": "^0.13.2",
     "path": "^0.12.7",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-grid-layout": "^0.12.3",
     "style-loader": "^0.13.0",
     "stylus-loader": "^1.6.0",
     "webpack": "^1.12.11",
