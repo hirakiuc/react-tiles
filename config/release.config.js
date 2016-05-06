@@ -6,17 +6,16 @@ module.exports = {
     extensions: ['', '.js']
   },
   entry: {
-    Board:       './src/Board.js',
+    Board:       ['./src/Board.js'],
     Widget:      ['./src/Widget.js'],
-    TextWidget:  './src/widgets/TextWidget.js',
-    ClockWidget: './src/widgets/ClockWidget.js'
+    TextWidget:  ['./src/widgets/TextWidget.js'],
+    ClockWidget: ['./src/widgets/ClockWidget.js'],
+    index:       './src/index.js'
   },
   externals: {
     "react": "React",
     "react-dom": "ReactDOM",
-    "PureRenderMixin": "react/lib/ReactComponentWithPureRenderMixin",
     "react-grid-layout": "ReactGridLayout",
-    "reactMixin": "react-mixin"
   },
   output: {
     path: path.join(__dirname, 'lib'),
