@@ -1,7 +1,5 @@
 import React from 'react'
-import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin'
 import ReactGridLayout from 'react-grid-layout'
-import reactMixin from 'react-mixin'
 
 const WidthProvider = ReactGridLayout.WidthProvider
 
@@ -26,8 +24,8 @@ export default class Board extends React.Component {
 
   processWidget(widget) {
     const widget_name = widget.type.name.replace(/\.?([A-Z])/g, (x, y) => {
-      return "-" + y.toLowerCase()
-    }).replace(/^\-/, "")
+      return '-' + y.toLowerCase()
+    }).replace(/^\-/, '')
 
     return (
       <div key={widget.props.key} _grid={widget.props._grid} className={'widget ' + widget_name }>
