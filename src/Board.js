@@ -44,7 +44,11 @@ export default class Board extends React.Component {
 }
 
 Board.propTypes = {
-  onLayoutChange: React.PropTypes.func,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.arrayOf(React.PropTypes.node),
+    React.PropTypes.node
+  ]).isRequired,
   cols: React.PropTypes.number.isRequired,
+  onLayoutChange: React.PropTypes.func,
   rowHeight: React.PropTypes.number.isRequired
 }
