@@ -13,12 +13,12 @@ module.exports = {
     index:       './src/index.js'
   },
   externals: {
-    "react": "React",
-    "react-dom": "ReactDOM",
-    "react-grid-layout": "ReactGridLayout",
+    "react": "react",
+    "react-dom": "react-dom",
+    "react-grid-layout": "react-grid-layout"
   },
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, '/lib/'),
     libraryTarget: 'umd',
     publicPath: '/lib/',
     filename: '[name].js'
