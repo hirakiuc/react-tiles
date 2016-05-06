@@ -28,7 +28,7 @@ export default class Board extends React.Component {
     }).replace(/^\-/, '')
 
     return (
-      <div key={widget.props.key} _grid={widget.props._grid} className={'widget ' + widget_name }>
+      <div key={widget.key} _grid={widget.props._grid} className={'widget ' + widget_name }>
         {widget}
       </div>
     )
