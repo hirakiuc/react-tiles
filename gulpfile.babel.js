@@ -10,7 +10,7 @@ import imagemin from 'gulp-imagemin'
 import stream from 'webpack-stream'
 import webpack from 'webpack'
 
-import webpackConfig from './config/webpack.config.js'
+import devConfig     from './config/dev.config.js'
 import releaseConfig from './config/release.config.js'
 
 gulp.task('build:js', () => {
@@ -27,7 +27,7 @@ gulp.task('build:stylus', () => {
   const dst = './lib'
 
   return gulp.src(src)
-    .pipe(stream(webpackConfig))
+    .pipe(stream(releaseConfig))
     .pipe(gulp.dest(dst))
 })
 
@@ -44,31 +44,26 @@ gulp.task('build:svg', () => {
     .pipe(gulp.dest(dst))
 })
 
-gulp.task('build:examples', () => {
+// Build release files
+gulp.task('build', ['build:js', 'build:stylus', 'build:svg'])
+
+// Build dev files
+gulp.task('build:dev', () => {
   const src = './examples/Root.js'
   const dst = './examples'
 
   return gulp.src(src)
-    .pipe(stream(webpackConfig))
+    .pipe(stream(devConfig))
     .pipe(gulp.dest(dst))
 })
 
-gulp.task('build', ['build:js', 'build:stylus', 'build:svg'])
 
-
-gulp.task('clean:build', () => {
-  del(['lib/*'])
+gulp.task('clean', () => {
+  del(['lib/*', 'examples/main.js', 'examples/main.js.map'])
 })
-
-gulp.task('clean:examples', () => {
-  del(['examples/main.js', 'examples/main.js.map'])
-})
-
-gulp.task('clean', ['clean:build', 'clean:examples'])
-
 
 gulp.task('server', (callback) => {
-  const config = Object.create(webpackConfig)
+  const config = Object.create(devConfig)
 
   new DevServer(webpack(config), {
     contentBase: './examples',
@@ -83,9 +78,9 @@ gulp.task('server', (callback) => {
 
 gulp.task('watch', () => {
   gulp.watch([
-    './src/**/*.js', '/examples/**/*.js',
+    './src/**/*.js', '/examples/Root.js',
     './stylus/**/*.styl', './images/**/*'
-  ], ['build'])
+  ], ['build:dev'])
 })
 
 gulp.task('lint', () => {
@@ -99,4 +94,4 @@ gulp.task('lint', () => {
   .pipe(eslint.failAfterError())
 })
 
-gulp.task('default', ['clean', 'build', 'build:examples', 'watch', 'server'])
+gulp.task('default', ['clean', 'build:dev', 'watch', 'server'])
