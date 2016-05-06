@@ -6,7 +6,6 @@ import del from 'del'
 import eslint from 'gulp-eslint'
 import gulp from 'gulp'
 import gutil from 'gulp-util'
-import imagemin from 'gulp-imagemin'
 import stream from 'webpack-stream'
 import webpack from 'webpack'
 
