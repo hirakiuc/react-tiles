@@ -1,0 +1,15 @@
+box: node:5.11-slim
+
+dev:
+  steps:
+    - npm-install
+    - script:
+      code: node ./node_modules/gulp/bin/gulp.js
+
+build:
+  steps:
+    - npm-install
+    - hgen/gulp:
+      tasks: test
+    - hgen/gulp:
+      tasks: lint

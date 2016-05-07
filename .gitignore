@@ -2,6 +2,10 @@
 
 examples/main.js*
 
+_builds
+_projects
+_steps
+
 ### Node ###
 # Logs
 logs
