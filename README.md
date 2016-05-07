@@ -6,6 +6,8 @@ This project use [STRML/react-grid-layout](https://github.com/STRML/react-grid-l
 
 [![Code Climate](https://codeclimate.com/github/hirakiuc/react-tiles/badges/gpa.svg)](https://codeclimate.com/github/hirakiuc/react-tiles)
 
+[![wercker status](https://app.wercker.com/status/ed7d2f504d62f64b1fb228dea308f3e9/s/master "wercker status")](https://app.wercker.com/project/bykey/ed7d2f504d62f64b1fb228dea308f3e9)
+
 # How To Develop
 
 ## Development
