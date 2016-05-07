@@ -10,7 +10,11 @@ import stream from 'webpack-stream'
 import webpack from 'webpack'
 
 import devConfig     from './config/dev.config.js'
+import testConfig    from './config/test.config.js'
 import releaseConfig from './config/release.config.js'
+
+// TODO: fork https://github.com/Dakuan/gulp-jest
+import jest from './config/gulp-jest.js'
 
 // Build release files
 gulp.task('build:dist', () => {
@@ -41,6 +45,14 @@ gulp.task('clean:dev', () => {
   del(['examples/main.js', 'examples/main.js.map'])
 })
 gulp.task('clean', ['clean:dev', 'clean:dist'])
+
+// test task
+gulp.task('test', () => {
+  const src = './__tests__/'
+
+  return gulp.src(src)
+    .pipe(jest(testConfig))
+})
 
 gulp.task('server', (callback) => {
   const config = Object.create(devConfig)

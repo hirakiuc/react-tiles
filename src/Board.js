@@ -27,16 +27,22 @@ export default class Board extends React.Component {
       return '-' + y.toLowerCase()
     }).replace(/^\-/, '')
 
+    const properties = Object.assign({}, {
+      key: widget.key,
+      _grid: widget.props._grid,
+      className: `widget ${widget_name}`
+    })
+
     return (
-      <div key={widget.key} _grid={widget.props._grid} className={'widget ' + widget_name }>
-        {widget}
-      </div>
+      <div {...properties}>{widget}</div>
     )
   }
 
   render() {
+    const properties = Object.assign({}, this.props, { className: 'layout' })
+
     return (
-      <StaticLayout className='layout' cols={this.props.cols} rowHeight={this.props.rowHeight} onLayoutChange={this.onLayoutChange}>
+      <StaticLayout {...properties}>
         { React.Children.map(this.props.children, (child) => this.processWidget(child) )}
       </StaticLayout>
     )
@@ -50,5 +56,6 @@ Board.propTypes = {
   ]).isRequired,
   cols: React.PropTypes.number.isRequired,
   onLayoutChange: React.PropTypes.func,
-  rowHeight: React.PropTypes.number.isRequired
+  rowHeight: React.PropTypes.number.isRequired,
+  width: React.PropTypes.number
 }
